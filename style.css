@@ -1,0 +1,74 @@
+body {
+  font-family: "Dancing Script", cursive;
+  font-family: "Outfit", sans-serif;
+}
+input {
+  border-radius: 20%;
+}
+p {
+  color: #400082;
+}
+ul {
+  margin: 0 0 10px;
+  padding: 0;
+  color: #400082;
+}
+li {
+  font-size: 12px;
+  height: 19px;
+  line-height: 1;
+  list-style: none;
+}
+.currentCity {
+  margin-top: 30px;
+  margin-bottom: 0;
+  color: #bb2d3b;
+  font-size: 2em;
+  font-weight: 500;
+}
+.box {
+  color: rgb(244, 244, 244);
+  background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+  display: block;
+  margin: 20px auto;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 8px 8px 26px rgb(32 32 32 / 57%);
+  max-width: 600px;
+}
+.date {
+  color: #400082;
+  font-weight: 450;
+}
+.todayWeather {
+  color: #400082;
+  font-size: 12px;
+  margin-bottom: 0;
+}
+.fa-sun {
+  color: #ffe168;
+  font-size: 2.3em;
+}
+.todayTemperature {
+  color: #400082;
+  font-size: 25px;
+}
+.units {
+  color: #400082;
+  font-size: 13px;
+  position: relative;
+  top: -9px;
+}
+.forecastDays,
+.forecastTemperature {
+  color: #400082;
+  font-size: 10px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+.forecastWeather {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
