@@ -72,3 +72,11 @@ li {
   margin: 0 auto;
   text-align: center;
 }
+.footnote {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+.footnoteLink {
+  color: #007bff;
+}
