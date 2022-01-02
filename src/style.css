@@ -24,7 +24,7 @@ li {
   margin-bottom: 0;
   color: #bb2d3b;
   font-size: 2em;
-  font-weight: 500;
+  font-weight: 595;
 }
 .box {
   color: rgb(244, 244, 244);
@@ -43,7 +43,15 @@ li {
 .todayWeather {
   color: #400082;
   font-size: 12px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
   margin-bottom: 0;
+}
+.todayIcon {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
 }
 .fa-sun {
   color: #ffe168;
@@ -58,6 +66,9 @@ li {
   font-size: 13px;
   position: relative;
   top: -9px;
+}
+.forecastTitle {
+  font-weight: 550;
 }
 .forecastDays,
 .forecastTemperature {
