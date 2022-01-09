@@ -54,6 +54,17 @@ li {
   top: -20px;
   width: 80px;
 }
+
+.weatherTemperature .active {
+  color: #400082;
+  cursor: default;
+  text-decoration: none;
+}
+
+.weatherTemperature .active:hover {
+  text-decoration: none;
+}
+
 .fa-sun {
   color: #ffe168;
   font-size: 2.3em;

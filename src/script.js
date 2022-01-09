@@ -147,6 +147,7 @@ function displayWeatherCondition(response) {
   document.querySelector(".todayTemperature").innerHTML = Math.round(
     response.data.main.temp
   );
+  celsiusTemperature = response.data.main.temp;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
@@ -177,8 +178,6 @@ function handleSubmit(event) {
   searchCity(city);
 }
 
-searchCity("Perth");
-
 function searchLocation(position) {
   let apiKey = "81b29a104e42877f6afcd5cf8b6e7ac1";
   let unit = "metric";
@@ -197,18 +196,29 @@ searchForm.addEventListener("submit", handleSubmit);
 let currentLocationButton = document.querySelector("#localisation-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-function temperatureInCelsius() {
-  let temperatureCelsius = document.querySelector(".todayTemperature");
-  temperatureCelsius.innerHTML = `20`;
+function displayTemperatureInFahrenheit(event) {
+  event.preventDefault();
+  let farhenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let temperatureElement = document.querySelector(".todayTemperature");
+  temperatureElement.innerHTML = Math.round(farhenheitTemperature);
 }
 
-let celsiusButton = document.querySelector("#celsius");
-celsiusButton.addEventListener("click", temperatureInCelsius);
-
-function temperatureInFahrenheit() {
-  let temperatureFahrenheit = document.querySelector(".todayTemperature");
-  temperatureFahrenheit.innerHTML = `80`;
+function displayTemperatureInCelsius(event) {
+  event.preventDefault();
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+  let temperatureElement = document.querySelector(".todayTemperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
-let fahrenheitButton = document.querySelector("#fahrenheit");
-fahrenheitButton.addEventListener("click", temperatureInFahrenheit);
+let celsiusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", displayTemperatureInFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", displayTemperatureInCelsius);
+
+searchCity("Perth");
