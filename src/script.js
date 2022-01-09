@@ -1,4 +1,5 @@
-function todayFormatDate(date) {
+function todayFormatDate(timestamp) {
+  let date = new Date(timestamp);
   let days = [
     "Sunday",
     "Monday",
@@ -26,13 +27,16 @@ function todayFormatDate(date) {
   let currentMonth = months[date.getMonth()];
   let currentDate = date.getDate();
   let currentHour = date.getHours();
+  if (currentHour < 10) {
+    currentHour = `0${currentHour}`;
+  }
   let currentMinutes = date.getMinutes();
-  let formattedDate = `${currentDay}, ${currentMonth} ${currentDate}, ${currentHour}:${currentMinutes}`;
+  if (currentMinutes < 10) {
+    currentMinutes = `0${currentMinutes}`;
+  }
+  let formattedDate = `${currentDay}, ${currentMonth} ${currentDate} at ${currentHour}:${currentMinutes}`;
   return formattedDate;
 }
-let now = new Date();
-let today = document.querySelector(".date");
-today.innerHTML = `${todayFormatDate(now)}`;
 
 function dayTwoFormatDate(date) {
   let daysShort = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -149,6 +153,15 @@ function displayWeatherCondition(response) {
   );
   document.querySelector(".todayWeather").innerHTML =
     response.data.weather[0].main;
+  document.querySelector(".date").innerHTML = todayFormatDate(
+    response.data.dt * 1000
+  );
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function searchCity(city) {
@@ -163,6 +176,8 @@ function handleSubmit(event) {
   let city = document.querySelector("#city-input").value;
   searchCity(city);
 }
+
+searchCity("Perth");
 
 function searchLocation(position) {
   let apiKey = "81b29a104e42877f6afcd5cf8b6e7ac1";

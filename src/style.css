@@ -49,9 +49,9 @@ li {
   margin-bottom: 0;
 }
 .todayIcon {
-  display: block;
-  margin: 0 auto;
-  text-align: center;
+  position: relative;
+  top: -20px;
+  left: -18px;
 }
 .fa-sun {
   color: #ffe168;
